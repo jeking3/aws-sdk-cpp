@@ -5,6 +5,7 @@
 
 #include <gtest/gtest.h>
 #include <aws/core/platform/Environment.h>
+#include <aws/core/utils/memory/stl/AWSMap.h>
 #include <aws/testing/platform/PlatformTesting.h>
 
 #include <aws/core/config/defaults/ClientConfigurationDefaults.h>
@@ -14,7 +15,7 @@ class ClientConfigurationDefaultsTest : public ::testing::Test
 
 public:
     // original env vars and their value
-    std::unordered_map<Aws::String, Aws::String> originalEnvVars;
+    Aws::UnorderedMap<Aws::String, Aws::String> originalEnvVars;
     const std::vector<Aws::String> ENV_VARS_TO_RESTORE =
             {"AWS_EC2_METADATA_DISABLED", "AWS_DEFAULTS_MODE", "AWS_EXECUTION_ENV",
              "AWS_REGION", "AWS_DEFAULT_REGION"};
